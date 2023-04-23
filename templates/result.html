@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Disease Report-Type Results</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-HkFYocmd+1XWmzS3hKP5mhPZ5k25LkuW1kiIktwX3AZ/+OQ6R8j7Jzy5zI7O8Wjq" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+      
+    }
+
+    .header {
+      background-color: #dc3545;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(59, 42, 42, 0.1);
+    }
+
+    .result-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    .result-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .result-text {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .result-label {
+      font-weight: bold;
+    }
+
+    .suggest {
+      text-decoration: none;
+      color: black;
+      background-color: gray;
+      border: 2px solid black;
+    }
+    .suggest:hover{
+      text-decoration: none;
+      color: white;
+      background-color: black;
+      border: 2px solid black;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <h1>Heart Disease Prediction Results</h1>
+    </div>
+
+
+    <div class="result-container">
+      <h2 class="result-title">Prediction using Decision Tree : </h2>
+      {% if pred2>0.5 %}
+      <p class="result-text"><span class="result-label">Report-Type :</span> <span class="text-danger">Negative</span>
+      </p>
+      <p class="result-text"><span class="result-label">Probability:</span> <span class="text-danger">{{pred2}}</span>
+      </p>
+      <p class="result-text"><span class="result-label">Prediction:</span> You have a Heart Disease</p>
+
+      {% else %}
+      <p class="result-text"><span class="result-label">Report-Type :</span> <span class="text-danger">Positive</span>
+      </p>
+      <p class="result-text"><span class="result-label">Probability:</span> <span class="text-danger">{{pred2}}</span>
+      </p>
+      <p class="result-text"><span class="result-label">Prediction:</span> You don't have a Heart Disease.</p>
+
+      {% endif %}
+    </div>
+
+
+    <div class="result-container">
+      <h2 class="result-title">Prediction using Random Forest : </h2>
+      {% if pred3>0.5 %}
+      <p class="result-text"><span class="result-label">Report-Type :</span> <span class="text-danger">Negative</span>
+      </p>
+      <p class="result-text"><span class="result-label">Probability:</span> <span class="text-danger">{{pred3}}</span>
+      </p>
+      <p class="result-text"><span class="result-label">Prediction:</span> You have a Heart Disease</p>
+
+      {% else %}
+      <p class="result-text"><span class="result-label">Report-Type :</span> <span class="text-danger">Positive</span>
+      </p>
+      <p class="result-text"><span class="result-label">Probability:</span> <span class="text-danger">{{pred3}}</span>
+      </p>
+      <p class="result-text"><span class="result-label">Prediction:</span> You don't have a Heart Disease.</p>
+
+      {% endif %}
+    </div>
+
+
+    <div class="result-container">
+      <h2 class="result-title">Prediction using K-Nearest Neighbour : </h2>
+      {% if pred4>0.5 %}
+      <p class="result-text"><span class="result-label">Report-Type :</span> <span class="text-danger">Negative</span>
+      </p>
+      <p class="result-text"><span class="result-label">Probability:</span> <span class="text-danger">{{pred4}}</span>
+      </p>
+      <p class="result-text"><span class="result-label">Prediction:</span> You have a Heart Disease</p>
+
+      {% else %}
+      <p class="result-text"><span class="result-label">Report-Type :</span> <span class="text-danger">Positive</span>
+      </p>
+      <p class="result-text"><span class="result-label">Probability:</span> <span class="text-danger">{{pred4}}</span>
+      </p>
+      <p class="result-text"><span class="result-label">Prediction:</span> You don't have a Heart Disease.</p>
+
+      {% endif %}
+    </div>
+
+
+    <div class="result-container">
+      <h2 class="result-title">Prediction using Logistic Regression : </h2>
+      {% if pred1>0.5 %}
+      <p class="result-text"><span class="result-label">Report-Type :</span> <span class="text-danger">Negative</span>
+      </p>
+      <p class="result-text"><span class="result-label">Probability:</span> <span class="text-danger">{{pred1}}</span>
+      </p>
+      <p class="result-text"><span class="result-label">Prediction:</span> You have a Heart Disease</p>
+
+      {% else %}
+      <p class="result-text"><span class="result-label">Report-Type :</span> <span class="text-danger">Positive</span>
+      </p>
+      <p class="result-text"><span class="result-label">Probability:</span> <span class="text-danger">{{pred1}}</span>
+      </p>
+      <p class="result-text"><span class="result-label">Prediction:</span> You don't have a Heart Disease.</p>
+
+      {% endif %}
+    </div>
+
+
+    <div class="text-center">
+      <a href="/templates/suggest.html" class="btn btn-primary suggest">Suggestions</a>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-e/Pb4iB2yprjlGySiI1ss8OYrEnOj/H06h1ZHyf9vmIowv2bHL4STP4oOjxo3Frq3"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Disease Report-Type  Result</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #f2f2f2;
+    }
+    .container {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">Heart Disease Report-Type  Result</h1>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Result</h5>
+        <p class="card-text">The result of your heart disease Report-Type  is <strong>Positive</strong>.</p>
+      </div>
+    </div>
+    <div class="mt-4">
+      <a href="/" class="btn btn-secondary">Back to Report-Type  Form</a>
+    </div>
+  </div>
+</body>
+</html> -->

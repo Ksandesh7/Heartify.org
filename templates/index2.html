@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Heart Disease Prediction</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    
+    <link rel="stylesheet" href="/CSS/style1.css">
+    <style>
+
+        body {
+            background-image: url("https://images.unsplash.com/photo-1541543784057-f12af640cbf8");
+            background-size: cover;
+        }
+
+        .jumbotron {
+            background-color: transparent;
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 0px;
+        }
+
+        .jumbotron h1 {
+            font-size: 6em;
+            font-weight: bold;
+            color: red;
+            text-shadow: 2px 2px #000;
+        }
+
+        .jumbotron p {
+            font-size: 2em;
+            font-weight: bold;
+            color: red;
+            text-shadow: 2px 2px #000;
+        }
+
+        .navbar {
+            background-color: #f44336;
+        }
+
+        .navbar-brand,
+        .navbar-nav a {
+            color: white !important;
+        }
+        .navbar-brand,
+        .navbar-nav a:hover {
+            color: white !important;
+            padding: 5px;
+            border-radius: 10px ;
+            color: black !important;
+            background-color: #fff !important;
+        }
+
+        .navbar-nav li.active a {
+            position: relative;
+            right: 5px;
+            padding: 5px;
+            border-radius: 10px;
+            color: black !important;
+            background-color: #fff !important;
+        }
+
+        .features {
+            background-color: #f2f2f2;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .features h2 {
+            margin-bottom: 50px;
+            color: #f44336;
+        }
+
+        .feature {
+            border: 2px solid #f44336;
+            border-radius: 10px ;
+            margin-bottom: 50px;
+            height: 350px;
+        }
+
+        .feature h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #f44336;
+        }
+
+        .feature h3 {
+            text-align: center;
+        }
+
+        .feature p {
+            font-size: 1.2em;
+            color: #333;
+            text-align: center;
+
+        }
+
+        .cta {
+            background-color: #f44336;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .cta h2 {
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .cta p {
+            font-size: 1.5em;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .cta a {
+            border-radius: 10px;
+            background-color: white;
+            color: #f44336;
+            border-color: white;
+            font-size: 1.5em;
+        }
+
+        .cta a:hover {
+            background-color: #333;
+            color: white;
+            border: 4px solid white;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        footer p {
+            font-size: 1.2em;
+            color: #bbb;
+        }
+
+        footer a {
+            color: white;
+        }
+
+        footer a:hover {
+            color: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" >
+        <div class="container">
+            <a class="navbar-brand" href="#">Heart Disease Prediction</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria
+
+                <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">Heart Disease Prediction</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/templates/predict_form.html">Prediction</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/templates/suggest.html">Suggestions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="jumbotron">
+                    <div class="container">
+                        <h1 class="display-1">Heart Disease Prediction</h1>
+                        <p class="lead">Are you at risk?</p>
+                    </div>
+                </div>
+
+                <section class="features">
+                    <div class="container">
+                        <h2 class="text-center">Our Services</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="feature">
+                                    <h3>Prediction Model</h3>
+                                    <p>We provide a reliable heart disease prediction model based on various input
+                                        parameters. Get an instant risk assessment with our easy-to-use form.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature">
+                                    <h3>Exercise Recommendations</h3>
+                                    <p>Our team of experts has designed specific exercise recommendations for
+                                        individuals at different risk levels. Improve your heart health with our
+                                        personalized exercise plan.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature">
+                                    <h3>Suggestions</h3>
+                                    <p>Based on your input parameters, we provide personalized suggestions for a
+                                        healthier lifestyle. Follow our tips to reduce your risk of heart disease.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+ 
+                <section class="cta">
+                    <div class="container">
+                        <h2 class="text-center">Get Your Heart Checked Today!</h2>
+                        <p class="lead">Don't wait until it's too late.<br>Take control of your heart health with our
+                            easy-to-use prediction model.</p>
+                        <a class="btn btn-lg btn-outline-light" href="/templates/predict_form.html">Predict Your Risk</a>
+                    </div>
+                </section>
+        
+                <footer>
+                    <div class="container">
+                        <p class="text-center">&copy; 2023 Heart Disease Prediction. All Rights Reserved.<br>Created by Prashil, Sandesh & Vinay.</p>
+                    </div>
+                </footer>
+                <!-- Bootstrap JS -->
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        </div>
+    </nav>
+</body>
+
+</html>

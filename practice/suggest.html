@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Heart Disease Prediction - Personalized Suggestions</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        h1,
+        h2,
+        p {
+            text-align: center;
+        }
+
+        .suggestions {
+            list-style-type: disc;
+            margin-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .table {
+            margin: 30px auto;
+        }
+
+        .btn {
+            display: block;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Personalized Suggestions</h1>
+        <hr>
+        <h3>Suggested Lifestyle Changes</h3>
+        <p>Based on the input parameters provided, here are some suggested lifestyle changes:</p>
+        <ul>
+            <li>Exercise regularly for at least 30 minutes a day</li>
+            <li>Eat a healthy diet rich in fruits, vegetables, and whole grains</li>
+            <li>Avoid smoking and limit alcohol consumption</li>
+            <li>Reduce stress through activities such as yoga or meditation</li>
+        </ul>
+        <hr>
+        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#doctor-section">Suggested
+            Doctors</button>
+        <div id="doctor-section" class="collapse">
+            <br>
+            <h3>Recommended Doctors</h3>
+            <p>Here are some recommended doctors in your area:</p>
+            <input type="text" id="doctor-search" class="form-control" placeholder="Search for doctors...">
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Experience</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="doctor-table-body">
+                    <tr>
+                        <td>Dr. John Doe</td>
+                        <td>(123) 456-7890</td>
+                        <td>10 years</td>
+                        <td>Cardiologist</td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Jane Smith</td>
+                        <td>(234) 567-8901</td>
+                        <td>5 years</td>
+                        <td>Internal Medicine</td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Robert Lee</td>
+                        <td>(345) 678-9012</td>
+                        <td>7 years</td>
+                        <td>Family Medicine</td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Emily Chen</td>
+                        <td>(456) 789-0123</td>
+                        <td>3 years</td>
+                        <td>Cardiologist</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#doctor-section').on('show.bs.collapse', function () {
+                $('#doctor-search').val('');
+            });
+
+            // Add event listener to the search input
+            document.getElementById("doctor-search");
+            // Add an event listener to the search bar input
+searchInput.addEventListener("keyup", function () {
+
+                // Get the input value
+                var filter = this.value.toUpperCase();
+
+                // Get the rows of the table
+                var rows = document.getElementById("doctor-table-body").getElementsByTagName("tr");
+
+                // Loop through the rows and hide those that don't match the search query
+                for (var i = 0; i < rows.length; i++) {
+                    var name = rows[i].getElementsByTagName("td")[0].textContent.toUpperCase();
+                    var phone = rows[i].getElementsByTagName("td")[1].textContent.toUpperCase();
+                    var experience = rows[i].getElementsByTagName("td")[2].textContent.toUpperCase();
+                    var details = rows[i].getElementsByTagName("td")[3].textContent.toUpperCase();
+                    if (name.indexOf(filter) > -1 || phone.indexOf(filter) > -1 || experience.indexOf(filter) > -1 || details.indexOf(filter) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }
+                }
+            });
+
+            // Add an event listener to the "Show Doctors" button
+            showDoctorsButton.addEventListener("click", function () {
+                // Toggle the "active" class on the button
+                this.classList.toggle("active");
+
+                // Get the doctors table element
+                var doctorsTable = document.getElementById("doctor-table");
+
+                // Toggle the "hidden" class on the doctors table
+                doctorsTable.classList.toggle("hidden");
+            });
+        })();
+    </script>
+</body>
+
+</html>

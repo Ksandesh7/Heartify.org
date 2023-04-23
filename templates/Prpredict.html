@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .container {
+            margin: 2.5% auto;
+            padding: 2% 5%;
+            background-color: rgb(252, 151, 156);
+            border-radius: 20px;
+        }
+
+        h1 {
+            margin: 1.5rem auto;
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        body{
+            background-color: rgb(248, 211, 211);
+            /* background-image: url(https://www.heart.org/-/media/Images/Around-the-AHA/2022-Top-10_SC.jpg); */
+        }
+
+        .button {
+            margin: 0.5rem auto;
+        }
+
+        .medical{
+            display: none;
+        }
+        .suggestion{
+            margin-bottom: 2%;
+        }
+        .elements{
+            color: black;
+        }
+       
+        .medium_blood{
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        #blood_pressure{
+            background-color: rgb(252, 151, 156);
+            padding: 0.5% 10%;
+            margin: 2% 12%;
+            border-radius: 20px;
+        }
+        </style>
+
+    <script type="text/javascript">
+
+        function gender(select){
+           if(select.value== "male"){
+            document.getElementById('medical').style.display = "block";
+           } else{
+            document.getElementById('medical').style.display = "none";
+           }
+        } 
+
+        // function bloodPressure(select){
+        //    if(select.value>=120 && select.value<=150){
+        //     document.getElementById('blood_pressure').style.display = "block";
+        //    } else{
+        //     document.getElementById('blood_pressure').style.display = "none";
+        //    }
+        // } 
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Predict Heart Disease</h1>
+        <form>
+
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>
+                </div>
+
+                <div class="form-group col-lg-6">
+                    <label for="sex">Sex</label>
+                    <select class="form-control" onchange="gender(this)" id="sex" name="sex" required>
+                        <!-- <option value="">Choose your sex</option> -->
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label for="cp">Chest Pain Type</label>
+                    <select class="form-control" id="cp" name="cp" required>
+                        <option value="">Choose your chest pain type</option>
+                        <option value="typical angina">Typical Angina</option>
+                        <option value="atypical angina">Atypical Angina</option>
+                        <option value="non-anginal pain">Non-Anginal Pain</option>
+                        <option value="asymptomatic">Asymptomatic</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-lg-6">
+                    <label for="trestbps">Resting Blood Pressure</label>
+                    <input type="number" onchange="bloodPressure(this)" class="form-control" id="trestbps" name="trestbps"
+                        placeholder="Enter your resting blood pressure (mm Hg)" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label for="chol">Serum Cholesterol</label>
+                    <input type="number" class="form-control" id="chol" name="chol"
+                        placeholder="Enter your serum cholesterol (mg/dl)" required>
+                </div>
+
+                <div class="form-group col-lg-6">
+                    <label for="fbs">Fasting Blood Sugar</label>
+                    <select class="form-control" id="fbs" name="fbs" required>
+                        <option value="">Choose your fasting blood sugar level</option>
+                        <option value="0">Less than 120 mg/dl</option>
+                        <option value="1">Greater than or equal to 120 mg/dl</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label for="restecg">Resting Electrocardiographic Results</label>
+                    <select class="form-control" id="restecg" name="restecg" required>
+                        <option value="">Choose your resting electrocardiographic results</option>
+                        <option value="0">Normal</option>
+                        <option value="1">ST-T Wave Abnormality</option>
+                        <option value="2">Left Ventricular Hypertrophy</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-lg-6">
+                    <label for="thalach">Maximum Heart Rate Achieved</label>
+                    <input type="number" class="form-control" id="thalach" name="thalach"
+                        placeholder="Enter your maximum heart rate achieved" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label for="exang">Exercise Induced Angina</label>
+                    <select class="form-control" id="exang" name="exang" required>
+                        <option value="">Choose if you have exercise induced angina</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-lg-6">
+                    <label for="oldpeak">ST Depression Induced by Exercise</label>
+                    <input type="number" class="form-control" id="oldpeak" name="oldpeak"
+                        placeholder="Enter your ST depression induced by exercise" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label for="slope">Slope of the Peak Excercise ST Segment</label>
+                    <select class="form-control" id="slope" name="slope" required>
+                        <option value="">Choose the Slope of Peak Excercise ST Segment</option>
+                        <option value="0">Upsloping</option>
+                        <option value="1">Flat</option>
+                        <option value="2">Downsloping</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-lg-6">
+                    <label for="slope">Slope of the Peak Excercise ST Segment</label>
+                    <select class="form-control" id="ca" name="ca" required>
+                        <option value="">Choose the number of major vessels colored by fluoroscopy</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg-12">
+                    <label for="slope">Thalassemia Type</label>
+                        <select class="form-control" id="thal" name="thal" required>
+                            <option value="">Choose your Thalassemia Type</option>
+                            <option value="0">Normal</option>
+                            <option value="1">Fixed Defect</option>
+                            <option value="2">Reversable Defect</option>
+                        </select>
+                </div>
+            </div>
+
+            <div class="button text-center">
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+        </form>
+
+    </div>
+    <!-- <div class="text-center"> -->
+        <!-- <h1 id="medical">Hello this is your medicine</h1>
+        <div id="blood_pressure">
+            <h1 class="suggestion text-center">Suggestion</h1>
+            <h3 class="medium_blood text-center">Blood Pressure</h3>
+              
+            <div class="row">
+                <div class="elements col-lg-6 text-center">
+                    <h5>Eat a Healthy Diet</h5>
+                    <p>⭐Choose healthy meal and snack options to help you avoid high blood pressure and its complications. Be sure to eat plenty of fresh fruits and vegetables.</p>
+                    <p>⭐Talk with your health care team about eating a variety of foods rich in potassium, fiber, and protein and lower in salt (sodium) and saturated fat.</p>
+                </div>
+                <div class="elements col-lg-6 text-center">
+                    <h5>Keep Yourself at a Healthy Weight</h5>
+                    <p>⭐Talk with your health care team about ways to reach a healthy weight, including choosing healthy foods and getting regular physical activity.</p>
+                    <p>⭐Alway keep your BMI value in range of 18.5-24.9</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="elements col-lg-6 text-center">
+                    <h5>Do Not Smoke</h5>
+                    <p>⭐Smoking raises your blood pressure and puts you at higher risk for heart attack and stroke. If you do not smoke, do not start. If you do smoke, quitting will lower your risk for heart disease.</p>
+                    <p>⭐Go to doctor because doctor can suggest ways to help you quit.</p>
+                </div>
+                <div class="elements col-lg-6 text-center">
+                    <h5>Keep Yourself at a Healthy Weight</h5>
+                    <p>⭐Talk with your health care team about ways to reach a healthy weight, including choosing healthy foods and getting regular physical activity.</p>
+                    <p>⭐Alway keep your BMI value in range of 18.5-24.9</p>
+                </div>
+            </div>
+        </div> -->
+    <!-- </div> -->
+    <!-- <script src="predict.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

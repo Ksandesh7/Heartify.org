@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Heart Disease Analysis &amp; Prediction</title>
+
+    <link href="css/styles-merged.css" rel="stylesheet">
+    <link href="css/style.min.css" rel="stylesheet">
+    <link href="fonts/icomoon/style.css" rel="stylesheet">
+    <link href="css/predictor.css" rel="stylesheet">
+    <link href="css/back-to-top.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/back-to-top.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/predictor.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/styles-merged.css') }}">
+
+    <script src="{{ url_for('static', filename='/js/back-to-top.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/custom.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/custom.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/scripts.min.js') }}"></script>
+
+
+
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.min.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="js/back-to-top.js"></script>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default probootstrap-navbar" >
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed"
+                    data-target="#navbar-collapse"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Heart Disease Prediction</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a data-nav-section="home" href="#">Home</a></li>
+                <li><a data-nav-section="features" href="#">Features</a></li>
+                <li><a data-nav-section="predict" href="/templates/predict_form.html">Predict</a></li>
+                <li><a data-nav-section="analysis" href="#">Analysis</a></li>
+                <li><a data-nav-section="suggestions" href="#">Suggestions</a></li>
+                <li><a data-nav-section="contact" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="probootstrap-hero prohttp://localhost/probootstrap/frame/#featuresbootstrap-slant"
+         data-section="home" data-stellar-background-ratio="0.5" id="home"
+         style="background-image: url(img/main_back.jpg);">
+    <div class="container">
+        <div class="row intro-text">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h1 class="probootstrap-heading probootstrap-animate" style="color:#E0F7FA">Prevention is better than cure!</h1>
+                <h2 class="probootstrap-animate" style="color:#E0F7FA">Predict your chance of having a heart disease</h2>
+                <div class="probootstrap-subheading center">
+                    <p class="probootstrap-animate"><a class="btn btn-primary" href="/templates/predict_form.html" role="button">Check Now</a><a class="btn btn-default smoothscroll" href="#analysis" role="button">See Analysis</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<button class="btn btn-primary" id="backToTopBtn" onclick="topFunction()" title="Go to top">
+    <span class="icon icon-align-top"></span>
+</button>
+
+<section class="probootstrap-section" data-section="predict" id="predict">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="probootstrap-service-item probootstrap-animate" data-animate-effect="fadeIn">
+                    <span class="icon icon-phone3"></span>
+                    <h2>Mobile Optimize</h2>
+                    <p>Optimized for viewing on different platforms and devices. Looks the same on every mobile,
+                        laptops, PCs and tablets. A smooth, continous flow.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="probootstrap-service-item probootstrap-animate" data-animate-effect="fadeIn">
+                    <span class="icon icon-wallet2"></span>
+                    <h2>Decrease Costs</h2>
+                    <p>Examine your heart related reports by yourself. Predict the chance of having a heart disease free
+                        of cost.</p>
+                    <p><a class="probootstrap-link" href="/templates/predict_form.html">Examine Now <i class="icon-chevron-right"></i></a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="probootstrap-service-item probootstrap-animate" data-animate-effect="fadeIn">
+                    <span class="icon icon-lightbulb"></span>
+                    <h2>Smart Idea</h2>
+                    <p>Great accuracy. Accurate prediction rates. Analysis and prediction based on large samples of
+                        data.</p>
+                    <p><a class="probootstrap-link" href="#analysis">Learn More <i class="icon-chevron-right"></i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="probootstrap-section probootstrap-bg-light" data-section="features" id="features">
+    <div class="container">
+        <div class="row mb100">
+            <div class="col-md-8 probootstrap-animate">
+                <p><img alt="Dataset" class="img-responsive probootstrap-shadow" src="/img/image.png"></p>
+            </div>
+            <div class="col-md-4 probootstrap-section-heading">
+                <h3 class="text-primary probootstrap-heading-2">Vast and Reliable Dataset <span class="icon icon-database2"></span></h3>
+                
+                <ul class="probootstrap-list">
+                    <li class="probootstrap-check">Dataset available at <a
+                            class="probootstrap-link" href="https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset" target="_blank">KAGGLE <span class="icon icon-database"></span></a></li>
+                    <li class="probootstrap-check">Contains 14 attributes</li>
+                </ul>
+            </div>
+        </div>
+        <!-- END row -->
+    </div>
+</section>
+<!-- END section -->
+
+
+<section class="probootstrap-section probootstrap-bg-dark" data-section="analysis" id="analysis">
+    <div class="container">
+        <div class="row text-center mb100">
+            <div class="col-md-8 col-md-offset-2 probootstrap-section-heading">
+                <h2 class="mb30 text-black probootstrap-heading">Analysis Results Based on Dataset Available</h2>
+                <p> The following are the results of analysis done on the available
+                    heart disease dataset. Each graph shows the result based on different attributes.</p>
+                <p><strong>Green</strong> box indicates <strong>No Disease</strong>.<br><strong>Red</strong> box indicates <strong>Disease.</strong></p>
+            </div>
+        </div>
+        <!-- END row -->
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Age" class="img-responsive probootstrap-shadow" src="img/plots/age.jpg">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Excercise Induced Angina" class="img-responsive probootstrap-shadow"
+                         src="img/plots/angina.jpg">
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Type of Chest Pain" class="img-responsive probootstrap-shadow"
+                         src="img/plots/chestpain.jpg">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="ST Depression Induced by Excercise" class="img-responsive probootstrap-shadow"
+                         src="img/plots/depression.jpg">
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Fasting Blood Sugar" class="img-responsive probootstrap-shadow"
+                         src="img/plots/fastingsugar.jpg">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Major Vessels Colored by Fluoroscopy" class="img-responsive probootstrap-shadow"
+                         src="img/plots/fluoroscopy.jpg">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Slope of Peak Excercise ST Segment" class="img-responsive probootstrap-shadow"
+                         src="img/plots/peak.jpg">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Rest ECG" class="img-responsive probootstrap-shadow" src="img/plots/restecg.jpg">
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Resting Blood Pressure" class="img-responsive probootstrap-shadow"
+                         src="img/plots/restingbp.jpg">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Serum Cholestrol" class="img-responsive probootstrap-shadow"
+                         src="img/plots/serumchol.jpg">
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Sex" class="img-responsive probootstrap-shadow" src="img/plots/sex.jpg">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Thalium Stress Test Result" class="img-responsive probootstrap-shadow"
+                         src="img/plots/thaliumstress.jpg">
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="probootstrap-testimonial">
+                    <img alt="Thalium Test Max. Stress Rate" class="img-responsive probootstrap-shadow"
+                         src="img/plots/thaliumtest.jpg">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- <section class="probootstrap-section probootstrap-cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2 class="probootstrap-heading">Future Scope</h2>
+                <p class="probootstrap-sub-heading">We can embed this application into a real time system which has
+                    sensors that measure certain attributes. This will help us get prediction and alerts in real time
+                    based on the body condition of the user.</p>
+                <p><a class="btn btn-black"
+                      href="https://github.com/akshah1997/Heart-Disease-Analysis-and-Prediction-Front-End.git"
+                      target="_blank">Contribute to Project <span
+                        class="icon icon-github2"></span></a></p>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+<section class="probootstrap-section probootstrap-bg-light" data-section="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form action="" class="probootstrap-form">
+                    <h2 class="text-black mt0">Get In Touch</h2>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Your Name" type="text">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Your Email" type="email">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Your Phone" type="number">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" cols="30" placeholder="Write a Message" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" value="Send Message">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3 col-md-push-1">
+                <ul class="probootstrap-contact-details">
+                    <li>
+                        <span  style="color: blue; font-weight: bold;">E-mail :-</span></span>
+                        prashil.kadam@spit.ac.in <br>
+                        vinay.jadhav@spit.ac.in <br>
+                        sandesh.kharchan@spit.ac.in
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="probootstrap-footer">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <a class="probootstrap-link" href="#home">Back to top <span class="icon icon-align-top"></span></a> <br>
+                &copy; 2023 Heart Disease Prediction. All Rights Reserved. <br> Designed &amp; Developed by <a>Prashil Kadam, Vinay Jadhav </a> &amp; <a >Sandesh Kharchan</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/scripts.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

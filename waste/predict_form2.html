@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Disease Prediction Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    /* Add a red-blue color scheme */
+    body {
+      background-color: lightcoral;
+    }
+
+    h1{
+      color: white;
+    }
+
+    .form-container {
+      background-color: rgb(43, 224, 215);
+      border-radius: 10px;
+      margin-top: 20px;
+      padding: 20px;
+    }
+
+    .form-control:focus {
+      border-color: white;
+      box-shadow: 0 0 0 0.2rem rgba(92, 159, 255, 0.25);
+    }
+
+    label {
+      color: white;
+    }
+
+    button[type="submit"] {
+      background-color: lightcoral;
+      border-color: black;
+    }
+
+    button[type="submit"]:hover {
+      background-color: white;
+      border: black;
+      color: #000;
+    }
+
+    select.form-control option:not(:first-child) {
+      background-color: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <h1>Heart Disease Prediction Form</h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="form-container">
+          <form action="" method="POST">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="age">Age</label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="sex">Sex</label>
+                <select class="form-control" id="sex" name="sex" required>
+                  <option value="">Choose your sex</option>
+                  <option value="0">Female</option>
+                  <option value="1">Male</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="cp">Chest Pain Type</label>
+                <select class="form-control" id="cp" name="cp" required>
+                  <option value="">Choose your chest pain type</option>
+                  <option value="0">Typical Angina</option>
+                  <option value="1">Atypical Angina</option>
+                  <option value="2">Non-Anginal Pain</option>
+                  <option value="3">Asymptomatic</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="trestbps">Resting Blood Pressure</label>
+                <input type="number" class="form-control" id="trestbps" name="trestbps"
+                  placeholder="Enter your resting blood pressure" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="chol">
+                  Cholesterol</label>
+                <input type="number" class="form-control" id="chol" name="chol"
+                  placeholder="Enter your cholesterol level" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="fbs">Fasting Blood Sugar</label>
+                <select class="form-control" id="fbs" name="fbs" required>
+                  <option value="">Choose your fasting blood sugar level</option>
+                  <option value="0">Less than 120 mg/dl</option>
+                  <option value="1">Greater than or equal to 120 mg/dl</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="restecg">Resting ECG</label>
+                <select class="form-control" id="restecg" name="restecg" required>
+                  <option value="">Choose your resting ECG result</option>
+                  <option value="0">Normal</option>
+                  <option value="1">ST-T Wave Abnormality</option>
+                  <option value="2">Left Ventricular Hypertrophy</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="thalach">Maximum Heart Rate Achieved</label>
+                <input type="number" class="form-control" id="thalach" name="thalach"
+                  placeholder="Enter your maximum heart rate achieved" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="exang">Exercise Induced Angina</label>
+                <select class="form-control" id="exang" name="exang" required>
+                  <option value="">Choose your exercise induced angina status</option>
+                  <option value="0">No</option>
+                  <option value="1">Yes</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="oldpeak">ST Depression Induced by Exercise</label>
+                <input type="number" step="0.1" class="form-control" id="oldpeak" name="oldpeak"
+                  placeholder="Enter your ST depression induced by exercise" required>
+              </div>
+            </div>
+            <div class="form-row justify-content-center">
+              <button type="submit" class="btn btn-primary">Predict</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
